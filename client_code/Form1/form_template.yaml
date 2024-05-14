@@ -7,7 +7,85 @@ components:
   properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
-  components: []
+  components:
+  - name: label_1
+    properties: {text: Pregnancies}
+    type: Label
+    layout_properties: {grid_position: 'BDEFMR,XOHELF'}
+  - name: drop_down_1
+    properties:
+      items: ['Yes', 'No']
+    type: DropDown
+    layout_properties: {grid_position: 'BDEFMR,UJNCSN'}
+  - name: label_2
+    properties: {text: Glucose}
+    type: Label
+    layout_properties: {grid_position: 'EBASTO,FZGZZC'}
+  - name: glucose
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'EBASTO,BNCLLB'}
+  - name: label_3
+    properties: {text: Blood Pressure}
+    type: Label
+    layout_properties: {grid_position: 'CASJOC,FGOGPP'}
+  - name: bp
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'CASJOC,MYJAMY'}
+  - name: label_4
+    properties: {text: Skin  Thickness}
+    type: Label
+    layout_properties: {grid_position: 'KKOPGE,BITZOR'}
+  - name: skin_thic
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'KKOPGE,NETZTH'}
+  - name: label_5
+    properties: {text: Insulin}
+    type: Label
+    layout_properties: {grid_position: 'YZWGWO,YDFRWL'}
+  - name: insulin
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'YZWGWO,ZOOVEH'}
+  - name: label_6
+    properties: {text: BMI}
+    type: Label
+    layout_properties: {grid_position: 'PHVYCV,GLRYUY'}
+  - name: bmi
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'PHVYCV,WICHRK'}
+  - name: label_7
+    properties: {text: Diabetes Pedigree Function}
+    type: Label
+    layout_properties: {grid_position: 'ODYSEN,MCDBPO'}
+  - name: dpf
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'ODYSEN,LGAAOS'}
+  - name: label_8
+    properties: {text: Age}
+    type: Label
+    layout_properties: {grid_position: 'XAPYRD,KYQDMN'}
+  - name: age
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'XAPYRD,MVPMGT'}
+  - name: button_1
+    properties: {text: Upload Manually}
+    type: Button
+    layout_properties: {grid_position: 'DCEVGL,PZJGZF'}
+  - name: file_loader_1
+    properties: {file_types: pdf, text: Upload via PDF}
+    type: FileLoader
+    layout_properties: {grid_position: 'DCEVGL,WHJYFV'}
+  - name: file_loader_2
+    properties: {file_types: '', text: Upload via Image}
+    type: FileLoader
+    layout_properties: {grid_position: 'DCEVGL,IEXSTN'}
+    data_bindings: []
 - type: FlowPanel
   properties: {}
   name: navbar_links

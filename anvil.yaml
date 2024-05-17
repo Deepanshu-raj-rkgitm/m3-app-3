@@ -32,4 +32,42 @@ db_schema:
       admin_ui: {width: 200, order: 1}
       type: string
     title: Pdfs
+  medical_recprd:
+    client: none
+    server: full
+    columns:
+    - name: Pregnanices
+      admin_ui: {width: 200, order: 0}
+      type: bool
+    - name: Glucose
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: Blood Pressure
+      admin_ui: {width: 200, order: 2}
+      type: number
+    - name: Skin Thickness
+      admin_ui: {width: 200, order: 3}
+      type: number
+    - name: Insulin
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: BMI
+      admin_ui: {width: 200, order: 5}
+      type: number
+    - name: DPF
+      admin_ui: {width: 200, order: 6}
+      type: number
+    - name: Age
+      admin_ui: {width: 200, order: 7}
+      type: number
+    - name: Created on
+      admin_ui: {width: 200, order: 8}
+      type: datetime
+    - name: Email
+      admin_ui: {width: 200, order: 9}
+      type: string
+    - name: Name
+      admin_ui: {width: 200, order: 10}
+      type: string
+    title: Medical Recprd
 renamed: true

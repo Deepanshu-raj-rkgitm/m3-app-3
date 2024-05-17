@@ -10,6 +10,15 @@ class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    
+def button_1_click(self, **event_args):
+        try:
+            glucose = float(self.text_box_number1.text)
+            number2 = float(self.text_box_number2.text)
+            decimal_value = float(self.text_box_decimal.text)
+        except ValueError:
+            alert("Please enter valid numbers.")
+            return
 
    
  

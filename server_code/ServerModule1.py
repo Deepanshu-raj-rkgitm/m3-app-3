@@ -14,5 +14,3 @@ import anvil.server
 # def say_hello(name):
 #   print("Hello, " + name + "!")
 #   return 42
-@anvil.server.callable
-def add_records

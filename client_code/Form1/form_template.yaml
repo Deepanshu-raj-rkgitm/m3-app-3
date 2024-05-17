@@ -12,7 +12,7 @@ components:
     properties: {text: Pregnancies}
     type: Label
     layout_properties: {grid_position: 'BDEFMR,XOHELF'}
-  - name: drop_down_1
+  - name: dropdown_yes_no
     properties:
       items: ['Yes', 'No']
     type: DropDown
@@ -21,7 +21,7 @@ components:
     properties: {text: Glucose}
     type: Label
     layout_properties: {grid_position: 'EBASTO,FZGZZC'}
-  - name: glucose
+  - name: glucose_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'EBASTO,BNCLLB'}
@@ -29,7 +29,7 @@ components:
     properties: {text: Blood Pressure}
     type: Label
     layout_properties: {grid_position: 'CASJOC,FGOGPP'}
-  - name: bp
+  - name: bp_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'CASJOC,MYJAMY'}
@@ -37,7 +37,7 @@ components:
     properties: {text: Skin  Thickness}
     type: Label
     layout_properties: {grid_position: 'KKOPGE,BITZOR'}
-  - name: skin_thic
+  - name: skinthic_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'KKOPGE,NETZTH'}
@@ -45,7 +45,7 @@ components:
     properties: {text: Insulin}
     type: Label
     layout_properties: {grid_position: 'YZWGWO,YDFRWL'}
-  - name: insulin
+  - name: insulin_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'YZWGWO,ZOOVEH'}
@@ -53,7 +53,7 @@ components:
     properties: {text: BMI}
     type: Label
     layout_properties: {grid_position: 'PHVYCV,GLRYUY'}
-  - name: bmi
+  - name: bmi_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'PHVYCV,WICHRK'}
@@ -61,7 +61,7 @@ components:
     properties: {text: Diabetes Pedigree Function}
     type: Label
     layout_properties: {grid_position: 'ODYSEN,MCDBPO'}
-  - name: dpf
+  - name: dpf_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'ODYSEN,LGAAOS'}
@@ -69,14 +69,15 @@ components:
     properties: {text: Age}
     type: Label
     layout_properties: {grid_position: 'XAPYRD,KYQDMN'}
-  - name: age
+  - name: age_box
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'XAPYRD,MVPMGT'}
   - name: manu_button
-    properties: {text: Upload Manually}
+    properties: {text: Upload Manually, role: filled-button}
     type: Button
     layout_properties: {grid_position: 'DCEVGL,PZJGZF'}
+    event_bindings: {click: manu_button_click}
   - name: file_loader_1
     properties: {file_types: pdf, text: Upload via PDF}
     type: FileLoader

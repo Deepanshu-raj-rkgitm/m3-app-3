@@ -2,44 +2,37 @@ from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
 import anvil.tables as tables
+import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
 
 class Form1(Form1Template):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
 
-
-def manu_button(self, **event_args):
-        try:
-            glucose = float(self.glucose.text)
-            blood_pressure = float(self.bp.text)
-            skin_thic = float(self.skin_thic.text)
-            insulin = float(self.insulin.text)
-            dpf = float(self.dpf.text)
-            bmi = float(self.bmi.text)
-            age = float(self.age.text)
-            preg = self.preg.items = [("Yes", True), ("No", False)]
-            preg = self.preg.selected_value
-            timestamp = datetime.now()
-        except ValueError:
-            alert("Please enter valid numbers.")
-            return
-           
-          
- self.clear_inputs()
-
-def clear_inputs(self): 
-        self.glucose.text = ""
-        self.bp.text = ""
-        self.skin_thic.text = ""
-        self.insulin.text = ""
-        self.bmi.text = ""
-        self.dpf.text = ""
-        self.age.text =""
-        self.preg.selected_value = None
+    def manu_button_click(self, **event_args):
+        # alert("You have clicked")
+        glucose = self.glucose_box.text 
+        bp = self.bp_box.text
+        skinthic = self.skinthic_box.text
+        insulin = self.insulin_box.text
+        bmi = self.bmi_box.text
+        dpf = self.dpf_box.text
+        age = self.age_box.text
         
-        # Notify the user that the form was submitted
-        alert("Data submitted successfully!")
+        anvil.server.call('add_medrecords', glucose, bp, skinthic, insulin, bmi, dpf, age)
+        Notification('Your Medical Record has been Submitted!').show()
+        self.clear_inputs()
+        
+    def clear_inputs(self):
+        self.glucose_box.text = ""
+        self.bp_box.text = ""
+        self.skinthic_box.text = ""
+        self.insulin_box.text = ""
+        self.bmi_box.text = ""
+        self.dpf_box.text = ""
+        self.age_box.text = ""
+
+    
 

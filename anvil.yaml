@@ -36,16 +36,13 @@ db_schema:
     client: none
     server: full
     columns:
-    - name: preg
-      admin_ui: {order: 0, width: 200}
-      type: bool
     - name: glucose
       admin_ui: {order: 1, width: 200}
       type: number
     - name: blood_pressure
       admin_ui: {order: 2, width: 200}
       type: number
-    - name: skin_thic
+    - name: skinthic
       admin_ui: {order: 3, width: 200}
       type: number
     - name: insulin
@@ -63,11 +60,5 @@ db_schema:
     - name: timestamp
       admin_ui: {order: 8, width: 200}
       type: datetime
-    - name: Email
-      admin_ui: {width: 200, order: 9}
-      type: string
-    - name: Name
-      admin_ui: {width: 200, order: 10}
-      type: string
     title: Medical records
 renamed: true

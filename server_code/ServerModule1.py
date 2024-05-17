@@ -2,7 +2,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import datetime
+from datetime import datetime
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
@@ -15,6 +15,7 @@ import datetime
 #   print("Hello, " + name + "!")
 #   return 42
 @anvil.server.callable
-def add_medical_record(preg, glucose,):
-  glucose=glucose,
-  timestamp=datetime.now())
+def add_medrecords(glucose, bp, insulin, bmi, dpf, age, skinthic):
+  app_tables.medical_records.add_row(
+    glucose=glucose, bp=bp, skinthic=skinthic,insulin=insulin,bmi=bmi,dpf=dpf, timestamp= datetime.now()
+  )

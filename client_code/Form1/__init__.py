@@ -8,11 +8,9 @@ from datetime import datetime
 
 class Form1(Form1Template):
     def __init__(self, **properties):
-        # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
     def manu_button_click(self, **event_args):
-        # alert("You have clicked")
         glucose = self.glucose_box.text 
         bp = self.bp_box.text
         skinthic = self.skinthic_box.text
@@ -21,10 +19,14 @@ class Form1(Form1Template):
         dpf = self.dpf_box.text
         age = self.age_box.text
         
-        anvil.server.call('add_medrecords', glucose, bp, skinthic, insulin, bmi, dpf, age)
-        Notification('Your Medical Record has been Submitted!').show()
-        self.clear_inputs()
-        
+        try:
+            # Call the server function
+            anvil.server.call('add_medrecords', glucose, bp, skinthic, insulin, bmi, dpf, age)
+            Notification('Your Medical Record has been Submitted!').show()
+            self.clear_inputs()
+        except Exception as e:
+            Notification(f'Error submitting medical record: {str(e)}').show()
+
     def clear_inputs(self):
         self.glucose_box.text = ""
         self.bp_box.text = ""
@@ -33,6 +35,7 @@ class Form1(Form1Template):
         self.bmi_box.text = ""
         self.dpf_box.text = ""
         self.age_box.text = ""
+
 
     
 

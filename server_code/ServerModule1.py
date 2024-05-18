@@ -1,21 +1,30 @@
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
 import anvil.server
+import anvil.tables as tables
+from anvil.tables import app_tables
 from datetime import datetime
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
-#
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
+
 @anvil.server.callable
-def add_medrecords(glucose, bp, insulin, bmi, dpf, age, skinthic):
-  app_tables.medical_records.add_row(
-    glucose=glucose, bp=bp, skinthic=skinthic,insulin=insulin,bmi=bmi,dpf=dpf, timestamp= datetime.now()
-  )
+def add_medrecords(glucose, bp, skinthic, insulin, bmi, dpf, age):
+    # Ensure all values are properly converted to the expected data types if necessary
+    try:
+        glucose = float(glucose)
+        bp = float(bp)
+        skinthic = float(skinthic)
+        insulin = float(insulin)
+        bmi = float(bmi)
+        dpf = float(dpf)
+        age = int(age)
+    except ValueError:
+        raise ValueError("Invalid input: Please ensure all fields are filled with the correct data types.")
+
+    # Add a new row to the medical_records table
+    app_tables.medical_records.add_row(
+        glucose=glucose,
+        bp=bp,
+        skinthic=skinthic,
+        insulin=insulin,
+        bmi=bmi,
+        dpf=dpf,
+        age=age,
+        timestamp=datetime.now()
+    )

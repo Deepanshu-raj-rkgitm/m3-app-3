@@ -36,10 +36,9 @@ class Form1(Form1Template):
         self.bmi_box.text = ""
         self.dpf_box.text = ""
         self.age_box.text = ""
+        self.preg_box.text = ""
 
     
-
-
 
     
 

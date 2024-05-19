@@ -2,14 +2,12 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-from PIL import Image
-from pytesseract import pytesseract 
-import enum
+import requests
 
-pytesseract.pytesseract.tesseract_cmd = '_/theme/tesseract-ocr-setup-3.02.02.exe'
-def extract_text_from_image(file):
-    # Read the image file
-    img = Image.open(file)
-    # Use pytesseract to extract text
-    text = pytesseract.image_to_string(img)
-    return text
+@anvil.server.callable
+def get_image_text(image_file):
+    api_url = 'https://api.api-ninjas.com/v1/imagetotext'
+    files = {'image': ('image.jpg', image_file.get_bytes(), image_file.content_type)}
+    response = requests.post(api_url, files=files)
+    return response.json()
+

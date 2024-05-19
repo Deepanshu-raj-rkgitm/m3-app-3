@@ -80,6 +80,7 @@ components:
     properties: {text: 'Previous Page ', icon: 'fa:angle-double-left'}
     type: Button
     layout_properties: {grid_position: 'DCEVGL,PPOUQT'}
+    event_bindings: {click: button_2_click}
   - name: manu_button
     properties: {text: Upload Manually, role: filled-button}
     type: Button

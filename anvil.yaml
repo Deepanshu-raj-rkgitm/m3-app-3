@@ -60,5 +60,8 @@ db_schema:
     - name: timestamp
       admin_ui: {order: 8, width: 200}
       type: datetime
+    - name: preg
+      admin_ui: {width: 200, order: 9}
+      type: number
     title: Medical records
 renamed: true

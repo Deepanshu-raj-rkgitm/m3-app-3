@@ -4,7 +4,7 @@ from anvil.tables import app_tables
 from datetime import datetime
 
 @anvil.server.callable
-def add_medrecords(glucose, bp, skinthic, insulin, bmi, dpf, age):
+def add_medrecords(glucose, bp, skinthic, insulin, bmi, dpf, age, preg):
     # Ensure all values are properly converted to the expected data types if necessary
     try:
         glucose = float(glucose)
@@ -14,6 +14,7 @@ def add_medrecords(glucose, bp, skinthic, insulin, bmi, dpf, age):
         bmi = float(bmi)
         dpf = float(dpf)
         age = int(age)
+        preg = int(preg)
     except ValueError:
         raise ValueError("Invalid input: Please ensure all fields are filled with the correct data types.")
 
@@ -26,5 +27,6 @@ def add_medrecords(glucose, bp, skinthic, insulin, bmi, dpf, age):
         bmi=bmi,
         dpf=dpf,
         age=age,
-        timestamp=datetime.now()
+        timestamp=datetime.now(),
+        preg=preg
     )

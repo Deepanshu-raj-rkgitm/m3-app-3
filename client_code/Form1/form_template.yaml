@@ -12,11 +12,10 @@ components:
     properties: {text: Pregnancies}
     type: Label
     layout_properties: {grid_position: 'BDEFMR,XOHELF'}
-  - name: dropdown_yes_no
-    properties:
-      items: ['Yes', 'No']
-    type: DropDown
-    layout_properties: {grid_position: 'BDEFMR,UJNCSN'}
+  - name: preg_box
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'BDEFMR,KIQCGS'}
   - name: label_2
     properties: {text: Glucose}
     type: Label
@@ -86,15 +85,18 @@ components:
     properties: {file_types: pdf, text: Upload via PDF}
     type: FileLoader
     layout_properties: {grid_position: 'DCEVGL,WHJYFV'}
+    event_bindings: {change: file_loader_1_change}
   - name: file_loader_2
     properties: {file_types: '', text: Upload via Image}
     type: FileLoader
     layout_properties: {grid_position: 'DCEVGL,IEXSTN'}
     data_bindings: []
+    event_bindings: {change: file_loader_2_change}
   - name: button_1
     properties: {text: Next Page, icon: 'fa:angle-double-right', icon_align: right}
     type: Button
     layout_properties: {grid_position: 'DCEVGL,LDSHOO'}
+    event_bindings: {click: button_1_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links

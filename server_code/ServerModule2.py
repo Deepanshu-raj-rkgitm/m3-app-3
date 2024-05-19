@@ -6,8 +6,10 @@ from PIL import Image
 from pytesseract import pytesseract 
 import enum
 
-class language(enum.ENUM):
-  ENG = 'eng'
-
-def extract_text(self, image: str, lang: str)  -> str:
-  img =Image.open(image)
+pytesseract.pytesseract.tesseract_cmd = '_/theme/tesseract-ocr-setup-3.02.02.exe'
+def extract_text_from_image(file):
+    # Read the image file
+    img = Image.open(file)
+    # Use pytesseract to extract text
+    text = pytesseract.image_to_string(img)
+    return text
